@@ -6,7 +6,7 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 12:20:30 by cdarrell          #+#    #+#             */
-/*   Updated: 2023/03/25 16:53:10 by cdarrell         ###   ########.fr       */
+/*   Updated: 2023/03/26 21:16:51 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 static void	init_ssl_md5_function(t_ssl_md5 *ssl_md5)
 {
-	if (!ft_strcmp(ssl_md5->hash_to_upper, "MD5"))
+	if (!ft_strcmp(ssl_md5->cmd, "md5"))
 	{
 		ssl_md5->hash_func = &md5_main;
 		ssl_md5->crypt_len = 16;
 	}
-	else if (!ft_strcmp(ssl_md5->hash_to_upper, "SHA256"))
+	else if (!ft_strcmp(ssl_md5->cmd, "sha256"))
 	{
 		ssl_md5->hash_func = &sha256_main;
 		ssl_md5->crypt_len = 32;
 	}
-	else if (!ft_strcmp(ssl_md5->hash_to_upper, "SHA512"))
+	else if (!ft_strcmp(ssl_md5->cmd, "sha512"))
 	{
 		ssl_md5->hash_func = &sha512_main;
 		ssl_md5->crypt_len = 64;
@@ -62,28 +62,11 @@ static t_ssl_md5	*init_ssl_md5(char *cmd)
 	ssl_md5->hash_list = NULL;
 }
 
-t_hash_md5	*create_ssl_md5_hash_node(char *name)
-{
-	t_hash_md5	*input;
-
-	input = malloc(sizeof(t_hash_md5));
-	if (!input)
-		ft_err("Error malloc: parsing.c - parse_hash_list - input");
-	input->type = true;
-	input->name = ft_strdup(name);
-	if (!input->name)
-		ft_err("Error malloc: parsing.c - parse_hash_list - input->name");
-	return (input);
-}
-
 t_ssl_md5	*parse_ssl_md5(char *cmd, char **argv)
 {
 	t_ssl_md5	*ssl_md5;
 
 	ssl_md5 = init_ssl_md5(cmd);
-
-
-
 	if (!parse_ssl_md5_argv(argv, ssl_md5))
 	{
 		free(ssl_md5->hash_to_upper);

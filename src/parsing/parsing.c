@@ -6,7 +6,7 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 11:43:45 by cdarrell          #+#    #+#             */
-/*   Updated: 2023/03/25 15:38:55 by cdarrell         ###   ########.fr       */
+/*   Updated: 2023/03/26 20:59:35 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,15 @@
 
 static int	check_usage(char *argv)
 {
-	if (ft_strcmp(argv, "md5") && \
-			ft_strcmp(argv, "sha256") && \
-			ft_strcmp(argv, "sha512") && \
-			ft_strcmp(argv, "whirlpool") && \
-			ft_strcmp(argv, "base64") && \
-			ft_strcmp(argv, "des") && \
-			ft_strcmp(argv, "des-ecb") && \
-			ft_strcmp(argv, "des-cbc"))
+	if (ft_strcmp(argv, "md5") && ft_strcmp(argv, "sha256") && \
+			ft_strcmp(argv, "sha512") && ft_strcmp(argv, "whirlpool") && \
+			ft_strcmp(argv, "base64") && ft_strcmp(argv, "des") && \
+			ft_strcmp(argv, "des-ecb") && ft_strcmp(argv, "des-cbc"))
 	{
 		ft_putstr("ft_ssl: Error: [");
 		ft_putstr(argv);
-		ft_putstr("] is an invalid command.\n");
-		ft_putstr("\n");
-		ft_putstr("Standard commands:\n");
-		ft_putstr("\n");
+		ft_putstr("] is an invalid command.\n\n");
+		ft_putstr("Standard commands:\n\n");
 		ft_putstr("Message Digest commands:\n");
 		ft_putstr("md5\n");
 		ft_putstr("sha256\n");
@@ -40,7 +34,6 @@ static int	check_usage(char *argv)
 		ft_putstr("des\n");
 		ft_putstr("des-ecb\n");
 		ft_putstr("des-cbc\n");
-		ft_putstr("\n");
 		return (0);
 	}
 	else
@@ -72,7 +65,15 @@ t_ssl	*parse(char **argv)
 			!ft_strcmp(ssl->cmd, "sha512") || \
 			!ft_strcmp(ssl->cmd, "whirlpool"))
 		ssl->ssl_md5 = parse_ssl_md5(ssl->cmd, argv + 1);
-	else
-		ft_putstr("!!!!!!!!!!!!!!!!\n");
+	else if (!ft_strcmp(ssl->cmd, "base64") || \
+			!ft_strcmp(ssl->cmd, "des") || \
+			!ft_strcmp(ssl->cmd, "des-ecb") || \
+			!ft_strcmp(ssl->cmd, "des-cbc"))
+		ssl->ssl_des = parse_ssl_des(ssl->cmd, argv + 1);
+	if (!ssl->ssl_md5 && !ssl->ssl_des)
+	{
+		free (ssl);
+		return (NULL);
+	}
 	return (ssl);
 }

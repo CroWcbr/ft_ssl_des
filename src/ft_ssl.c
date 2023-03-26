@@ -6,7 +6,7 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 11:43:49 by cdarrell          #+#    #+#             */
-/*   Updated: 2023/03/25 16:46:58 by cdarrell         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:23:21 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	_signal_handler(int signal)
 static void	mandatory_part(char **argv)
 {
 	t_ssl		*ssl;
-
 
 	ssl = parse(argv);
 	if (!ssl)

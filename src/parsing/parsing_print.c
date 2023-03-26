@@ -6,7 +6,7 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 18:30:46 by cdarrell          #+#    #+#             */
-/*   Updated: 2023/03/25 16:51:40 by cdarrell         ###   ########.fr       */
+/*   Updated: 2023/03/26 17:29:26 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,49 @@ static void	print_ssl_md5(t_ssl_md5 *ssl_md5)
 	}
 }
 
+void	print_ssl_des(t_ssl_des *ssl_des)
+{
+	ft_putstr("type = \t");
+	ft_putstr(ssl_des->cmd);
+	ft_putstr("\n");
+	if (ssl_des->i)
+	{
+		ft_putstr("input_file = \t");
+		ft_putstr(ssl_des->input_file);
+		ft_putstr("\n");
+	}
+	else
+	{
+		ft_putstr("input_buffer = \t");
+		ft_putstr(ssl_des->input_buffer);
+		ft_putstr("\n");
+	}
+	if (ssl_des->o)
+	{
+		ft_putstr("output_file = \t");
+		ft_putstr(ssl_des->output_file);
+		ft_putstr("\n");
+	}
+	if (ssl_des->a)
+		ft_putstr("a = \t1\n");
+	if (ssl_des->d)
+		ft_putstr("d = \t1\n");
+	if (ssl_des->e)
+		ft_putstr("e = \t1\n");
+	if (ssl_des->i)
+		ft_putstr("i = \t1\n");
+	if (ssl_des->k)
+		ft_putstr("k = \t1\n");
+	if (ssl_des->o)
+		ft_putstr("o = \t1\n");
+	if (ssl_des->p)
+		ft_putstr("p = \t1\n");
+	if (ssl_des->s)
+		ft_putstr("s = \t1\n");
+	if (ssl_des->v)
+		ft_putstr("v = \t1\n");
+}
+
 void	parse_print(t_ssl *ssl)
 {
 	ft_putstr("----------------------------\n");
@@ -49,6 +92,6 @@ void	parse_print(t_ssl *ssl)
 			!ft_strcmp(ssl->cmd, "whirlpool"))
 		print_ssl_md5(ssl->ssl_md5);
 	else
-		ft_putstr("!!!!!!!!!!!!!!!!\n");
+		print_ssl_des(ssl->ssl_des);
 	ft_putstr("----------------------------\n");
 }

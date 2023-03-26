@@ -6,7 +6,7 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 16:22:33 by cdarrell          #+#    #+#             */
-/*   Updated: 2023/03/25 17:03:26 by cdarrell         ###   ########.fr       */
+/*   Updated: 2023/03/26 21:26:32 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,45 +19,8 @@ static void	free_ssl(t_ssl_md5 *ssl_md5)
 	free(ssl_md5);
 }
 
-static char	*str_append(char *str_file, char *input_buff, size_t r, uint64_t *len)
-{
-	char		*tmp;
-
-	tmp = (char *)malloc(*len + r);
-	if (!str_file)
-		ft_err("Error malloc: ft_ssl.c - str_append - str_file");
-	ft_memcpy(tmp, str_file, *len);
-	free(str_file);
-	ft_memcpy(tmp + *len, input_buff, r);
-	*len += r;
-	return (tmp);
-}
-
-static char	*read_to_str(int fd, uint64_t *len)
-{
-	char		*str_file;
-	char		input_buff[1000];
-	int			r;
-
-	str_file = ft_strdup("");
-	if (!str_file)
-		ft_err("Error malloc: ft_ssl.c - hash_file - str_file");
-	while (1)
-	{
-		r = read(fd, input_buff, 1000);
-		if (r == 0)
-			break ;
-		if (r < 0)
-		{
-			free (str_file);
-			ft_err("Error read: ft_ssl.c - hash_file - r");
-		}
-		str_file = str_append(str_file, input_buff, r, len);
-	}
-	return (str_file);
-}
-
-static uint8_t	*read_file(uint8_t *(*hash_func)(const char *str, const uint64_t len), \
+static uint8_t	*read_file(uint8_t *(*hash_func)(const char *str, \
+												const uint64_t len), \
 						t_hash_md5 *hash, char *hash_type)
 {
 	char		*str_file;
@@ -76,7 +39,7 @@ static uint8_t	*read_file(uint8_t *(*hash_func)(const char *str, const uint64_t 
 		return (NULL);
 	}
 	len = 0;
-	str_file = read_to_str(fd, &len);
+	str_file = read_fd_to_str(fd, &len);
 	result = hash_func(str_file, len);
 	free(str_file);
 	close(fd);

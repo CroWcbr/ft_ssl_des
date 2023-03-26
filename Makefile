@@ -12,11 +12,16 @@ LIBFT_LIB	=	libft.a
 
 SRC			=	ft_ssl.c \
 				ft_ssl_md5.c \
+				ft_ssl_des.c \
+				ft_ssl_read_fd_to_str.c \
 				ft_ssl_help.c \
 				ft_ssl_print.c \
 				parsing/parsing.c \
 				parsing/parsing_ssl_md5.c \
 				parsing/parsing_ssl_md5_argv.c \
+				parsing/parsing_ssl_des.c \
+				parsing/parsing_ssl_des_argv.c \
+				parsing/parsing_ssl_stdin.c \
 				parsing/parsing_print.c \
 				ssl_md5/md5/md5.c \
 				ssl_md5/md5/md5_algorithm.c \

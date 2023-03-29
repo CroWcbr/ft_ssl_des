@@ -6,7 +6,7 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 19:53:49 by cdarrell          #+#    #+#             */
-/*   Updated: 2023/03/29 20:20:56 by cdarrell         ###   ########.fr       */
+/*   Updated: 2023/03/29 23:01:23 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,8 @@ uint8_t		*whirlpool(const char *str, const uint64_t len);
 void		print_hash(t_ssl_md5 *ssl, t_hash_md5 *hash, uint8_t *result);
 
 void		make_ssl_des(t_ssl_des *ssl_des);
-char		*base64_main(char mode, const char *input, const size_t inp_len, size_t *out_len);
+char		*base64_main(const char mode, const char *input, \
+						size_t inp_len, size_t *out_len);
 // char		*des_main(const char *str, const uint64_t len);
 // char		*des_cbc_main(const char *str, const uint64_t len);
 // char		*des_ecb_main(const char *str, const uint64_t len);

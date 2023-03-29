@@ -6,7 +6,7 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 12:20:30 by cdarrell          #+#    #+#             */
-/*   Updated: 2023/03/26 21:16:51 by cdarrell         ###   ########.fr       */
+/*   Updated: 2023/03/29 18:14:08 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ static t_ssl_md5	*init_ssl_md5(char *cmd)
 	ssl_md5->r = false;
 	ssl_md5->s = false;
 	ssl_md5->hash_list = NULL;
+	return ssl_md5;
 }
 
 t_ssl_md5	*parse_ssl_md5(char *cmd, char **argv)

@@ -6,7 +6,7 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 11:43:49 by cdarrell          #+#    #+#             */
-/*   Updated: 2023/03/25 17:23:21 by cdarrell         ###   ########.fr       */
+/*   Updated: 2023/03/29 18:05:56 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	mandatory_part(char **argv)
 			!ft_strcmp(ssl->cmd, "whirlpool"))
 		make_ssl_md5(ssl->ssl_md5);
 	else
-		ft_putstr("make_des\n");
+		make_ssl_des(ssl->ssl_des);
 	free(ssl);
 }
 

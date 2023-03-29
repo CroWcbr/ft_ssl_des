@@ -6,3 +6,6 @@ Only separated md5 and des project!
 
 v1.1
 Make simple parsing for ssl_des. Make struct of project
+
+v1.2
+Make base64 encrypt. Error in base64 decrypt!!!

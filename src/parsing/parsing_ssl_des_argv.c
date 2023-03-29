@@ -6,7 +6,7 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 15:53:09 by cdarrell          #+#    #+#             */
-/*   Updated: 2023/03/26 17:05:10 by cdarrell         ###   ########.fr       */
+/*   Updated: 2023/03/29 18:00:40 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,48 +16,49 @@ t_bool	parse_ssl_des_argv(char **argv, t_ssl_des *ssl_des)
 {
 	while (*argv)
 	{
-		if (!ft_strcmp(*argv, "-a"))
-			ssl_des->a = true;
-		else if (!ft_strcmp(*argv, "-d"))
-		{
-			ssl_des->d = true;
-			ssl_des->e = false;
-		}
+		// if (!ft_strcmp(*argv, "-a"))
+		// 	ssl_des->a = true;
+		// else 
+		if (!ft_strcmp(*argv, "-d"))
+			ssl_des->mode = 'D';
 		else if (!ft_strcmp(*argv, "-e"))
-		{
-			ssl_des->e = true;
-			ssl_des->d = false;
-		}
+			ssl_des->mode = 'E';
 		else if (!ft_strcmp(*argv, "-i"))
 		{
-			ssl_des->i = true;
 			argv++;
 			if (!(*argv))
 			{
-				ft_putstr("Error parse_argv: flag s, but no string after\n");
+				ft_putstr("Error parse_argv: flag -i, but no string after\n");
 				return (0);
 			}
 			ssl_des->input_file = *argv;
 		}
-		else if (!ft_strcmp(*argv, "-k"))
-			ssl_des->k = true;
+		// else if (!ft_strcmp(*argv, "-k"))
+		// 	ssl_des->k = true;
 		else if (!ft_strcmp(*argv, "-o"))
 		{
-			ssl_des->o = true;
 			argv++;
 			if (!(*argv))
 			{
-				ft_putstr("Error parse_argv: flag s, but no string after\n");
+				ft_putstr("Error parse_argv: flag -o, but no string after\n");
 				return (0);
 			}
 			ssl_des->output_file = *argv;
 		}
-		else if (!ft_strcmp(*argv, "-p"))
-			ssl_des->p = true;
-		else if (!ft_strcmp(*argv, "-s"))
-			ssl_des->s = true;
-		else if (!ft_strcmp(*argv, "-v"))
-			ssl_des->v = true;
+		// else if (!ft_strcmp(*argv, "-p"))
+		// 	ssl_des->p = true;
+		// else if (!ft_strcmp(*argv, "-s"))
+		// 	ssl_des->s = true;
+		// else if (!ft_strcmp(*argv, "-v"))
+		// 	ssl_des->v = true;
+		else
+		{
+			ft_putstr(ssl_des->cmd);
+			ft_putstr(": Unrecognized flag ");
+			ft_putstr(*argv);
+			ft_putstr("\n");
+			return (0);
+		}
 		argv++;
 	}
 	return (1);

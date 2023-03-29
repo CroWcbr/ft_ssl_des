@@ -6,7 +6,7 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 20:37:39 by cdarrell          #+#    #+#             */
-/*   Updated: 2023/03/26 21:18:55 by cdarrell         ###   ########.fr       */
+/*   Updated: 2023/03/29 20:20:10 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 static void	init_ssl_des_function(t_ssl_des *ssl_des)
 {
-	if (!ft_strcmp(ssl_des->cmd, "base64"))
-		;
-	else if (!ft_strcmp(ssl_des->cmd, "des"))
-		;
-	else if (!ft_strcmp(ssl_des->cmd, "des-ecb"))
-		;
-	else if (!ft_strcmp(ssl_des->cmd, "des-cbc"))
-		;
+	ssl_des->coding_func = &base64_main;
+	// ssl_des->coding_func = NULL;
+	// ssl_des->encription_func = NULL;
+	// if (!ft_strcmp(ssl_des->cmd, "des"))
+	// 	;
+	// else if (!ft_strcmp(ssl_des->cmd, "des-ecb"))
+	// 	;
+	// else if (!ft_strcmp(ssl_des->cmd, "des-cbc"))
+	// 	;
 }
 
 static t_ssl_des	*init_ssl_des(char *cmd)
@@ -33,18 +34,18 @@ static t_ssl_des	*init_ssl_des(char *cmd)
 		ft_err("Error malloc: parse_ssl_des.c - ssl_des");
 	ssl_des->cmd = cmd;
 	init_ssl_des_function(ssl_des);
+	ssl_des->mode = 'E';
 	ssl_des->input_file = NULL;
 	ssl_des->input_buffer = NULL;
+	ssl_des->input_len = 0;
 	ssl_des->output_file = NULL;
-	ssl_des->a = false;
-	ssl_des->d = false;
-	ssl_des->e = true;
-	ssl_des->i = false;
-	ssl_des->k = false;
-	ssl_des->o = false;
-	ssl_des->p = false;
-	ssl_des->s = false;
-	ssl_des->v = false;
+	ssl_des->output_buffer = NULL;
+	ssl_des->output_len = 0;
+	// ssl_des->a = false;
+	// ssl_des->k = false;
+	// ssl_des->p = false;
+	// ssl_des->s = false;
+	// ssl_des->v = false;
 	return (ssl_des);
 }
 
@@ -63,6 +64,7 @@ t_ssl_des	*parse_ssl_des(char *cmd, char **argv)
 		ssl_des->input_buffer = read_stdin(ft_strdup(""), NULL);
 		if (!ssl_des->input_buffer)
 			ft_err("Error malloc: parse_ssl_des.c -  input_buffer");
+		ssl_des->input_len = ft_strlen(ssl_des->input_buffer);
 	}
 	return (ssl_des);
 }

@@ -6,7 +6,7 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 18:30:46 by cdarrell          #+#    #+#             */
-/*   Updated: 2023/03/29 18:02:54 by cdarrell         ###   ########.fr       */
+/*   Updated: 2023/03/30 22:13:43 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,30 +42,30 @@ static void	print_ssl_md5(t_ssl_md5 *ssl_md5)
 
 void	print_ssl_des(t_ssl_des *ssl_des)
 {
-	ft_putstr("type = \t");
-	ft_putstr(ssl_des->cmd);
-	ft_putstr("\n");
-	if (ssl_des->input_file)
-	{
-		ft_putstr("input_file = \t");
-		ft_putstr(ssl_des->input_file);
-		ft_putstr("\n");
-	}
-	else
-	{
-		ft_putstr("input_buffer = \t");
-		ft_putstr(ssl_des->input_buffer);
-		ft_putstr("\n");
-	}
-	if (ssl_des->output_file)
-	{
-		ft_putstr("output_file = \t");
-		ft_putstr(ssl_des->output_file);
-		ft_putstr("\n");
-	}
-	ft_putstr("mode = \t");
-	ft_putstr(&ssl_des->mode);
-	ft_putstr("\n");
+		// ft_putstr("type = \t");
+		// ft_putstr(ssl_des->cmd);
+		// ft_putstr("\n");
+		// if (ssl_des->input_file)
+		// {
+		// 	ft_putstr("input_file = \t");
+		// 	ft_putstr(ssl_des->input_file);
+		// 	ft_putstr("\n");
+		// }
+		// else
+		// {
+		// 	ft_putstr("input_buffer = \t");
+		// 	ft_putstr(ssl_des->input_buffer);
+		// 	ft_putstr("\n");
+		// }
+		// if (ssl_des->output_file)
+		// {
+		// 	ft_putstr("output_file = \t");
+		// 	ft_putstr(ssl_des->output_file);
+		// 	ft_putstr("\n");
+		// }
+		// ft_putstr("mode = \t");
+		// ft_putstr(&ssl_des->mode);
+		// ft_putstr("\n");
 	// if (ssl_des->a)
 	// 	ft_putstr("a = \t1\n");
 	// if (ssl_des->k)

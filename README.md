@@ -9,3 +9,11 @@ Make simple parsing for ssl_des. Make struct of project
 
 v1.2
 Make base64 encrypt. Error in base64 decrypt!!!
+
+v1.3
+base64 work algorithm
+
+v1.4
+base64 finished + teste base64 done
+
+Now i work under scop....

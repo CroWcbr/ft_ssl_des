@@ -6,7 +6,7 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 19:53:49 by cdarrell          #+#    #+#             */
-/*   Updated: 2023/03/29 23:01:23 by cdarrell         ###   ########.fr       */
+/*   Updated: 2023/03/31 10:42:42 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct s_hash_md5
 typedef struct s_ssl_des
 {
 	char			*cmd;
-	char			*(*coding_func)(char mode, const char *str, const size_t inp_len, size_t *out_len);
+	char			*(*coding_func)(const char mode, const char *str, const size_t inp_len, size_t *out_len);
 	uint8_t			*(*encription_func)(const char *str, const uint64_t len);
 	char			mode;
 	char			*input_file;
@@ -93,7 +93,7 @@ void		print_hash(t_ssl_md5 *ssl, t_hash_md5 *hash, uint8_t *result);
 
 void		make_ssl_des(t_ssl_des *ssl_des);
 char		*base64_main(const char mode, const char *input, \
-						size_t inp_len, size_t *out_len);
+						const size_t inp_len, size_t *out_len);
 // char		*des_main(const char *str, const uint64_t len);
 // char		*des_cbc_main(const char *str, const uint64_t len);
 // char		*des_ecb_main(const char *str, const uint64_t len);

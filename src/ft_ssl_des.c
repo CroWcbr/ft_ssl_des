@@ -6,7 +6,7 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:28:00 by cdarrell          #+#    #+#             */
-/*   Updated: 2023/03/29 20:41:06 by cdarrell         ###   ########.fr       */
+/*   Updated: 2023/03/31 10:44:19 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ void	make_ssl_des(t_ssl_des *ssl_des)
 		ft_putstr("make_des, not base64\n");;
 
 
+	if (ssl_des->output_buffer)
+		printf("%s\n", ssl_des->output_buffer);
+
 
 	free(ssl_des->input_buffer);
+	free(ssl_des->output_buffer);
+	free(ssl_des);
 }

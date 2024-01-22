@@ -16,4 +16,4 @@ base64 work algorithm
 v1.4
 base64 finished + teste base64 done
 
-Now i work under scop....
+Too much time ago.... I need time for this and i forgot it )))

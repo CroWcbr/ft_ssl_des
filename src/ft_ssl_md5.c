@@ -21,7 +21,8 @@ static void	free_ssl(t_ssl_md5 *ssl_md5)
 
 static uint8_t	*read_file(uint8_t *(*hash_func)(const char *str, \
 												const uint64_t len), \
-						t_hash_md5 *hash, char *hash_type)
+							t_hash_md5 *hash,
+							char *hash_type)
 {
 	char		*str_file;
 	uint64_t	len;
@@ -60,7 +61,7 @@ void	make_ssl_md5(t_ssl_md5 *ssl_md5)
 			result = ssl_md5->hash_func(hash->name, ft_strlen(hash->name));
 		else
 			result = read_file(ssl_md5->hash_func, hash, ssl_md5->cmd);
-		print_hash(ssl_md5, hash, result);
+		print_hash_md5(ssl_md5, hash, result);
 		free(hash->name);
 		tmp = tmp->next;
 		free(result);

@@ -42,12 +42,10 @@ void	make_ssl_des(t_ssl_des *ssl_des)
 													ssl_des->input_len, \
 													&ssl_des->output_len);
 	else
-		ft_putstr("make_des, not base64\n");;
-
+		ft_putstr("make_des, not base64\n");
 
 	if (ssl_des->output_buffer)
 		printf("%s\n", ssl_des->output_buffer);
-
 
 	free(ssl_des->input_buffer);
 	free(ssl_des->output_buffer);

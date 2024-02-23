@@ -82,7 +82,7 @@ static void	hex_print_hash(uint8_t *result, int len)
 	}
 }
 
-void	print_hash(t_ssl_md5 *ssl, t_hash_md5 *hash, uint8_t *result)
+void	print_hash_md5(t_ssl_md5 *ssl, t_hash_md5 *hash, uint8_t *result)
 {
 	if (!result)
 		return ;

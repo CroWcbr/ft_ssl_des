@@ -1,19 +1,14 @@
 # ft_ssl_des
 symmetric encoding and encryption
 
-v1.0
-Only separated md5 and des project!
+## Hashing algorithm
+In my repo - [ft_ssl](https://github.com/CroWcbr/ft_ssl)
 
-v1.1
-Make simple parsing for ssl_des. Make struct of project
+## Symmetric encoding and encryption
+- base64
 
-v1.2
-Make base64 encrypt. Error in base64 decrypt!!!
+## Bonus
 
-v1.3
-base64 work algorithm
 
-v1.4
-base64 finished + teste base64 done
-
-Too much time ago.... I need time for this and i forgot it )))
+## References
+- wikipedia :smiley:

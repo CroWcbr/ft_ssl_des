@@ -36,7 +36,7 @@ static void	tester_base64(char *cmd, char mode, int test, int print, \
 			random = rand() % 128;
 			str[i] = random;
 		}
-		else
+		else // mode == 'D'
 		{
 			random = rand() % 64;
 			str[i] = b64[random];
@@ -173,24 +173,6 @@ static void	tester_base64_full_random(char *cmd, char mode, int test, int str_le
 	printf("-------------------------------------\n");
 }
 
-int	main(void)
-{
-	int	test;
-	int	str_len_test;
-	int	print;
-
-	test = 1000;
-	str_len_test = 100000;
-	print = 0;
-	srand(time(NULL));
-
-	tester_base64("base64", 'E', test, print, openssl_base64, base64_main);
-	tester_base64("base64", 'D', test, print, openssl_base64, base64_main);
-	tester_base64_full_random("base64 full random", 'E', test, str_len_test, print, openssl_base64, base64_main);
-	tester_base64_full_random("base64 full random", 'D', test, str_len_test, print, openssl_base64, base64_main);
-}
-
-
 char	*openssl_base64(const char mode, const char *b64_encode_this, const size_t encode_this_many_bytes, size_t *out_len)
 {
 	char	*result;
@@ -237,4 +219,21 @@ char	*openssl_base64_decode(const char *b64_decode_this, const size_t decode_thi
 	*out_len = BIO_read(b64_bio, base64_decoded, decode_this_many_bytes);
 	BIO_free_all(b64_bio);  //Destroys all BIOs in chain, starting with b64 (i.e. the 1st one).
 	return base64_decoded;        //Returns base-64 decoded data with trailing null terminator.
+}
+
+int	main(void)
+{
+	int	test;
+	int	str_len_test;
+	int	print;
+
+	test = 1000;
+	str_len_test = 100000;
+	print = 0;
+	srand(time(NULL));
+
+	tester_base64("base64", 'E', test, print, openssl_base64, base64_main);
+	tester_base64("base64", 'D', test, print, openssl_base64, base64_main);
+	tester_base64_full_random("base64 full random", 'E', test, str_len_test, print, openssl_base64, base64_main);
+	tester_base64_full_random("base64 full random", 'D', test, str_len_test, print, openssl_base64, base64_main);
 }

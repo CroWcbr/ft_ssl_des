@@ -18,14 +18,14 @@ static char	*g_line;
 void	_signal_handler(int signal)
 {
 	ft_putstr("\rSTOP SIGNAL");
-	if (signal == -1)
-		ft_putstr(" Ctrl + D ");
-	else if (signal == 2)
+	if (signal == SIGINT)
 		ft_putstr(" Ctrl + C ");
-	else if (signal == 3)
+	else if (signal == SIGQUIT)
 		ft_putstr(" Ctrl + / ");
-	else if (signal == 20)
+	else if (signal == SIGTSTP)
 		ft_putstr(" Ctrl + Z ");
+	else if (signal == SIGTERM)
+		ft_putstr(" kill pid ");
 	else
 		ft_putstr(" Unknown signal ");
 	ft_putstr("from user");
@@ -60,6 +60,7 @@ static void	work_like_openssl(void)
 	signal(SIGINT, _signal_handler);
 	signal(SIGQUIT, _signal_handler);
 	signal(SIGTSTP, _signal_handler);
+	signal(SIGTERM, _signal_handler);
 	while (1)
 	{
 		ft_putstr("OPENSSL > ");
@@ -72,7 +73,7 @@ static void	work_like_openssl(void)
 			ft_free_split(argv);
 		}
 		if (r == 0)
-			break ;
+			break ;	// ft_putstr(" Ctrl + D ");
 		if (r < 0)
 			ft_err("Error gnl: ft_ssl - work_like_openssl - line in gnl");
 	}

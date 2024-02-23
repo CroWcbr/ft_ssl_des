@@ -89,7 +89,7 @@ uint8_t		*md5_main(const char *str, const uint64_t len);
 uint8_t		*sha256_main(const char *str, const uint64_t len);
 uint8_t		*sha512_main(const char *str, const uint64_t len);
 uint8_t		*whirlpool(const char *str, const uint64_t len);
-void		print_hash(t_ssl_md5 *ssl, t_hash_md5 *hash, uint8_t *result);
+void		print_hash_md5(t_ssl_md5 *ssl, t_hash_md5 *hash, uint8_t *result);
 
 void		make_ssl_des(t_ssl_des *ssl_des);
 char		*base64_main(const char mode, const char *input, \

@@ -14,7 +14,8 @@
 
 static void	base64_encode_algo(const char *input, \
 								const size_t inp_len, \
-								char *result)
+								char *result, \
+								const size_t out_len)
 {
 	uint32_t	pack_3_bytes;
 	size_t		i;
@@ -34,6 +35,8 @@ static void	base64_encode_algo(const char *input, \
 		i_tmp = -1;
 		while (++i_tmp < 4)
 			result[j++] = g_b64[(pack_3_bytes >> ((3 - i_tmp) * 6)) & 0x3F];
+        if ((j + 1) % 65 == 0 && j < out_len - 4)
+                result[j++] = '\n';
 	}
 	while (i-- > inp_len)
 		result[--j] = '=';
@@ -46,11 +49,19 @@ char	*base64_encode(const char *input, \
 	char	*result;
 
 	*out_len = 4 * ((inp_len + 2) / 3);
+	*out_len += *out_len / 64;
+	if (*out_len)
+		*out_len += 1 - ((*out_len) % 65 ? 0 : 1);
+	
 	result = malloc(*out_len + 1);
 	if (!result)
 		ft_err("Error malloc: base64_main.c - base64_encode - result");
+	
+	if ((*out_len) > 0)
+		result[(*out_len) - 1] = '\n';
 	result[*out_len] = '\0';
-	base64_encode_algo(input, inp_len, result);
+
+	base64_encode_algo(input, inp_len, result, *out_len);
 	return (result);
 }
 

@@ -12,7 +12,7 @@
 
 #include "../../../include/ssl_des/base64.h"
 
-static uint32_t	base64_find_pack_4_bytes(const char *input, int *i)
+static uint32_t	base64_find_pack_4_bytes(const char *input, size_t *i)
 {
 	int			i_tmp;
 	uint32_t	pack_4_bytes;
@@ -39,8 +39,8 @@ static void	base64_decode_algo(const char *input, \
 									char *result, \
 									const size_t out_len)
 {
-	int			i;
-	int			j;
+	size_t		i;
+	size_t		j;
 	uint32_t	pack_4_bytes;
 
 	i = 0;

@@ -44,6 +44,7 @@ void	make_ssl_des(t_ssl_des *ssl_des)
 	else
 		ft_putstr("make_des, not base64\n");
 
+	// change output!!! to file if -o
 	if (ssl_des->output_buffer)
 		printf("%s\n", ssl_des->output_buffer);
 

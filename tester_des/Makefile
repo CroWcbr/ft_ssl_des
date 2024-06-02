@@ -1,16 +1,16 @@
-NAME		=	tester
+NAME		=	test_des
 
 CC			=	gcc 
-FLAGS		=	#-Wall -Wextra -Werror
+FLAGS		=	-Wall -Wextra -Werror
 
-INCLUDE		= 	../../include/
-LIBFT_DIR	=	../../libft
-SRC_DIR		=	../../src
+INCLUDE		= 	../include/
+LIBFT_DIR	=	../libft
+SRC_DIR		=	../src
 OBJ_DIR		=	obj
 
 LIBFT_LIB	=	libft.a
 
-SRC			=	tester/tester.c \
+SRC			=	tester/tester_des.c \
 				ft_ssl_help.c \
 				ssl_des/base64/base64_main.c \
 				ssl_des/base64/base64_decode.c

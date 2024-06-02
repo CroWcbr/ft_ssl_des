@@ -63,7 +63,7 @@ t_ssl_des	*parse_ssl_des(char *cmd, char **argv)
 	{
 		ssl_des->input_buffer = read_stdin(ft_strdup(""), NULL);
 		if (!ssl_des->input_buffer)
-			ft_err("Error malloc: parse_ssl_des.c -  input_buffer");
+			ft_err("Error malloc: parse_ssl_des.c - input_buffer");
 		ssl_des->input_len = ft_strlen(ssl_des->input_buffer);
 	}
 	return (ssl_des);

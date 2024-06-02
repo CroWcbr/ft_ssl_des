@@ -81,9 +81,6 @@ t_bool		parse_ssl_des_argv(char **argv, t_ssl_des *ssl_md5);
 
 void		parse_print(t_ssl *ssl);
 
-void	print_ssl_des(t_ssl_des *ssl_des);
-
-
 void		make_ssl_md5(t_ssl_md5 *ssl_md5);
 uint8_t		*md5_main(const char *str, const uint64_t len);
 uint8_t		*sha256_main(const char *str, const uint64_t len);

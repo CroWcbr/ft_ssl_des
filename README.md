@@ -10,7 +10,12 @@ In my repo - [ft_ssl](https://github.com/CroWcbr/ft_ssl)
 ## Bonus
 
 ## Tester
-Tester located ./src/tester (base64)
+Tester located ./tester (base64)
+- ft_ssl (hash)
+- ft_des (des)
 
 ## References
 - wikipedia :smiley:
+
+## ToDo
+- output to file

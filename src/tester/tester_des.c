@@ -23,7 +23,7 @@ static void	tester_base64(char *cmd, char mode, int test, int print, \
 	char		*resylt_my;
 	size_t		out_len_os = 0;
 	size_t		out_len_my = 0;
-	char		random;
+	int		random;
 	char		b64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
 	err = 0;
@@ -71,7 +71,7 @@ static void	tester_base64(char *cmd, char mode, int test, int print, \
 		}
 		else
 		{
-			for (int j = 0; j < out_len_os; j++)
+			for (size_t j = 0; j < out_len_os; j++)
 				if (resylt_os[j] != resylt_my[j])
 				{
 					err++;
@@ -100,7 +100,7 @@ static void	tester_base64_full_random(char *cmd, char mode, int test, int str_le
 	size_t		out_len_os = 0;
 	size_t		out_len_my = 0;
 	int			random;
-	char		random_char;
+	int			random_char;
 	char		b64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
 	err = 0;
@@ -155,7 +155,7 @@ static void	tester_base64_full_random(char *cmd, char mode, int test, int str_le
 		}
 		else
 		{
-			for (int j = 0; j < out_len_os; j++)
+			for (size_t j = 0; j < out_len_os; j++)
 				if (resylt_os[j] != resylt_my[j])
 				{
 					err++;

@@ -16,9 +16,6 @@ t_bool	parse_ssl_des_argv(char **argv, t_ssl_des *ssl_des)
 {
 	while (*argv)
 	{
-		// if (!ft_strcmp(*argv, "-a"))
-		// 	ssl_des->a = true;
-		// else 
 		if (!ft_strcmp(*argv, "-d"))
 			ssl_des->mode = 'D';
 		else if (!ft_strcmp(*argv, "-e"))
@@ -33,8 +30,6 @@ t_bool	parse_ssl_des_argv(char **argv, t_ssl_des *ssl_des)
 			}
 			ssl_des->input_file = *argv;
 		}
-		// else if (!ft_strcmp(*argv, "-k"))
-		// 	ssl_des->k = true;
 		else if (!ft_strcmp(*argv, "-o"))
 		{
 			argv++;
@@ -45,12 +40,48 @@ t_bool	parse_ssl_des_argv(char **argv, t_ssl_des *ssl_des)
 			}
 			ssl_des->output_file = *argv;
 		}
-		// else if (!ft_strcmp(*argv, "-p"))
-		// 	ssl_des->p = true;
-		// else if (!ft_strcmp(*argv, "-s"))
-		// 	ssl_des->s = true;
-		// else if (!ft_strcmp(*argv, "-v"))
-		// 	ssl_des->v = true;
+		else if (!ft_strcmp(*argv, "-a") && ssl_des->coding_func)
+			ssl_des->a = true;
+		else if (!ft_strcmp(*argv, "-k") && ssl_des->coding_func)
+		{
+			argv++;
+			if (!(*argv))
+			{
+				ft_putstr("Error parse_argv: flag -k, but no string after\n");
+				return (0);
+			}
+			ssl_des->k = *argv;
+		}
+		else if (!ft_strcmp(*argv, "-p") && ssl_des->coding_func)
+		{
+			argv++;
+			if (!(*argv))
+			{
+				ft_putstr("Error parse_argv: flag -p, but no string after\n");
+				return (0);
+			}
+			ssl_des->p = *argv;
+		}
+		else if (!ft_strcmp(*argv, "-s") && ssl_des->coding_func)
+		{
+			argv++;
+			if (!(*argv))
+			{
+				ft_putstr("Error parse_argv: flag -s, but no string after\n");
+				return (0);
+			}
+			ssl_des->s = *argv;
+		}
+		else if (!ft_strcmp(*argv, "-v") && ssl_des->coding_func)
+		{
+			argv++;
+			if (!(*argv))
+			{
+				ft_putstr("Error parse_argv: flag -v, but no string after\n");
+				return (0);
+			}
+			ssl_des->v = *argv;
+		}
 		else
 		{
 			ft_putstr(ssl_des->cmd);

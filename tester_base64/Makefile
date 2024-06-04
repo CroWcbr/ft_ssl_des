@@ -1,4 +1,4 @@
-NAME		=	test_des
+NAME		=	test_base64
 
 CC			=	gcc 
 FLAGS		=	-Wall -Wextra -Werror
@@ -10,7 +10,7 @@ OBJ_DIR		=	obj
 
 LIBFT_LIB	=	libft.a
 
-SRC			=	tester/tester_des.c \
+SRC			=	tester/tester_base64.c \
 				ft_ssl_help.c \
 				ssl_des/base64/base64_main.c \
 				ssl_des/base64/base64_decode.c

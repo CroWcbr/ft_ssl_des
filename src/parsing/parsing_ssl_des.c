@@ -14,15 +14,23 @@
 
 static void	init_ssl_des_function(t_ssl_des *ssl_des)
 {
-	ssl_des->coding_func = &base64_main;
-	// ssl_des->coding_func = NULL;
-	// ssl_des->encription_func = NULL;
-	// if (!ft_strcmp(ssl_des->cmd, "des"))
-	// 	;
-	// else if (!ft_strcmp(ssl_des->cmd, "des-ecb"))
-	// 	;
-	// else if (!ft_strcmp(ssl_des->cmd, "des-cbc"))
-	// 	;
+	ssl_des->base64 = &base64_main;
+	ssl_des->coding_func = NULL;
+	if (ft_strcmp(ssl_des->cmd, "base64"))
+	{
+		if (!ft_strcmp(ssl_des->cmd, "des"))
+		{
+			
+		}
+		else if (!ft_strcmp(ssl_des->cmd, "des-ecb"))
+		{
+			
+		}
+		else if (!ft_strcmp(ssl_des->cmd, "des-cbc"))
+		{
+			
+		}
+	}
 }
 
 static t_ssl_des	*init_ssl_des(char *cmd)
@@ -41,11 +49,12 @@ static t_ssl_des	*init_ssl_des(char *cmd)
 	ssl_des->output_file = NULL;
 	ssl_des->output_buffer = NULL;
 	ssl_des->output_len = 0;
-	// ssl_des->a = false;
-	// ssl_des->k = false;
-	// ssl_des->p = false;
-	// ssl_des->s = false;
-	// ssl_des->v = false;
+
+	ssl_des->a = false;
+	ssl_des->k = NULL;
+	ssl_des->p = NULL;
+	ssl_des->s = NULL;
+	ssl_des->v = NULL;
 	return (ssl_des);
 }
 

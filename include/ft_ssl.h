@@ -48,8 +48,15 @@ typedef struct s_hash_md5
 typedef struct s_ssl_des
 {
 	char			*cmd;
-	char			*(*coding_func)(const char mode, const char *str, const size_t inp_len, size_t *out_len);
-	uint8_t			*(*encription_func)(const char *str, const uint64_t len);
+	char			*(*base64)(const char mode, \
+									const char *str, \
+									const size_t inp_len, \
+									size_t *out_len);
+	uint8_t			*(*coding_func)(const char mode, \
+									const char *str, \
+									const size_t inp_len, \
+									size_t *out_len,
+									void *flag);
 	char			mode;
 	char			*input_file;
 	char			*input_buffer;
@@ -57,11 +64,12 @@ typedef struct s_ssl_des
 	char			*output_file;
 	char			*output_buffer;
 	size_t			output_len;
-	// t_bool			a;
-	// t_bool			k;
-	// t_bool			p;
-	// t_bool			s;
-	// t_bool			v;
+// crypto flag
+	t_bool			a;
+	char			*k;
+	char			*p;
+	char			*s;
+	char			*v;
 }				t_ssl_des;
 
 typedef struct s_ssl
@@ -89,8 +97,7 @@ uint8_t		*whirlpool(const char *str, const uint64_t len);
 void		print_hash_md5(t_ssl_md5 *ssl, t_hash_md5 *hash, uint8_t *result);
 
 void		make_ssl_des(t_ssl_des *ssl_des);
-char		*base64_main(const char mode, const char *input, \
-						const size_t inp_len, size_t *out_len);
+char		*base64_main(const char mode, const char *input, const size_t inp_len, size_t *out_len);
 // char		*des_main(const char *str, const uint64_t len);
 // char		*des_cbc_main(const char *str, const uint64_t len);
 // char		*des_ecb_main(const char *str, const uint64_t len);

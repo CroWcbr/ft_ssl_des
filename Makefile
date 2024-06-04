@@ -28,11 +28,9 @@ SRC			=	ft_ssl.c \
 				ssl_md5/sha256/sha256.c \
 				ssl_md5/sha256/sha256_algorithm.c \
 				ssl_md5/sha256/sha256_utily.c \
-				ssl_md5/sha256/sha256_utily2.c \
 				ssl_md5/sha512/sha512.c \
 				ssl_md5/sha512/sha512_algorithm.c \
 				ssl_md5/sha512/sha512_utily.c \
-				ssl_md5/sha512/sha512_utily2.c \
 				ssl_md5/whirlpool/whirlpool.c \
 				ssl_md5/whirlpool/whirlpool_algorithm.c \
 				ssl_md5/whirlpool/whirlpool_utily.c \

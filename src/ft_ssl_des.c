@@ -37,7 +37,7 @@ void	make_ssl_des(t_ssl_des *ssl_des)
 	if (ssl_des->input_file)
 		ssl_des->input_buffer = read_file(ssl_des->cmd, ssl_des->input_file, &ssl_des->input_len);
 	if (!ft_strcmp(ssl_des->cmd, "base64"))
-		ssl_des->output_buffer = ssl_des->coding_func(ssl_des->mode, \
+		ssl_des->output_buffer = ssl_des->base64(ssl_des->mode, \
 													ssl_des->input_buffer, \
 													ssl_des->input_len, \
 													&ssl_des->output_len);

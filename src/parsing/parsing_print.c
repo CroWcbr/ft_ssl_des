@@ -66,16 +66,39 @@ void	print_ssl_des(t_ssl_des *ssl_des)
 		ft_putstr("mode = \t\t");
 		ft_putstr(&ssl_des->mode);
 		ft_putstr("\n");
-	// if (ssl_des->a)
-	// 	ft_putstr("a = \t1\n");
-	// if (ssl_des->k)
-	// 	ft_putstr("k = \t1\n");
-	// if (ssl_des->p)
-	// 	ft_putstr("p = \t1\n");
-	// if (ssl_des->s)
-	// 	ft_putstr("s = \t1\n");
-	// if (ssl_des->v)
-	// 	ft_putstr("v = \t1\n");
+		if (ssl_des->coding_func)
+		{
+			if (ssl_des->a)
+			{
+				ft_putstr("in base64 = \t\t");
+				ft_putnbr_fd(ssl_des->a, 1);
+				ft_putstr("\n");
+			}
+			if (ssl_des->k)
+			{
+				ft_putstr("key = \t\t");
+				ft_putstr(ssl_des->k);
+				ft_putstr("\n");
+			}
+			if (ssl_des->p)
+			{
+				ft_putstr("pass = \t\t");
+				ft_putstr(ssl_des->p);
+				ft_putstr("\n");
+			}
+			if (ssl_des->s)
+			{
+				ft_putstr("salt = \t\t");
+				ft_putstr(ssl_des->s);
+				ft_putstr("\n");
+			}
+			if (ssl_des->v)
+			{
+				ft_putstr("init_vec = \t");
+				ft_putstr(ssl_des->v);
+				ft_putstr("\n");
+			}
+		}
 }
 
 void	parse_print(t_ssl *ssl)

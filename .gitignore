@@ -1,4 +1,6 @@
 obj
 ft_ssl
-tester
+test_hash
+test_base64
+test_des
 libft.a

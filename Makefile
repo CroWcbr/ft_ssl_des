@@ -22,6 +22,7 @@ SRC			=	ft_ssl.c \
 				parsing/parsing_ssl_des.c \
 				parsing/parsing_ssl_des_argv.c \
 				parsing/parsing_ssl_stdin.c \
+				parsing/parsing_ssl_stdin_pass.c \
 				parsing/parsing_print.c \
 				ssl_md5/md5/md5.c \
 				ssl_md5/md5/md5_algorithm.c \

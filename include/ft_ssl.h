@@ -6,7 +6,7 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 19:53:49 by cdarrell          #+#    #+#             */
-/*   Updated: 2023/03/31 10:42:42 by cdarrell         ###   ########.fr       */
+/*   Updated: 2024/06/06 22:20:15 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ typedef struct s_ssl_des
 									const char *str, \
 									const size_t inp_len, \
 									size_t *out_len);
-	uint8_t			*(*coding_func)(const char mode, \
+	char			*(*coding_func)(const char mode, \
 									const char *str, \
 									const size_t inp_len, \
-									size_t *out_len,
-									void *flag);
+									size_t *out_len); //,
+									// void *flag);
 	char			mode;
 	char			*input_file;
 	char			*input_buffer;
@@ -86,6 +86,7 @@ t_bool		parse_ssl_md5_argv(char **argv, t_ssl_md5 *ssl_md5);
 void		parse_ssl_md5_flag_p(t_ssl_md5 *ssl_md5);
 t_ssl_des	*parse_ssl_des(char *cmd, char **argv);
 t_bool		parse_ssl_des_argv(char **argv, t_ssl_des *ssl_md5);
+char		*read_pass(char mode);
 
 void		parse_print(t_ssl *ssl);
 

@@ -6,7 +6,7 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:28:00 by cdarrell          #+#    #+#             */
-/*   Updated: 2023/03/31 10:44:19 by cdarrell         ###   ########.fr       */
+/*   Updated: 2024/07/01 14:15:32 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,35 @@ void	make_ssl_des(t_ssl_des *ssl_des)
 {
 	if (ssl_des->input_file)
 		ssl_des->input_buffer = read_file(ssl_des->cmd, ssl_des->input_file, &ssl_des->input_len);
-	if (!ft_strcmp(ssl_des->cmd, "base64"))
-		ssl_des->output_buffer = ssl_des->base64(ssl_des->mode, \
-													ssl_des->input_buffer, \
-													ssl_des->input_len, \
-													&ssl_des->output_len);
-	else
-		ft_putstr("make_des, not base64\n");
+	
+	if (ssl_des->input_buffer)
+	{
+		if (!ft_strcmp(ssl_des->cmd, "base64"))
+			ssl_des->output_buffer = ssl_des->base64(ssl_des->mode, \
+														ssl_des->input_buffer, \
+														ssl_des->input_len, \
+														&ssl_des->output_len);
+		else
+		{
+			ssl_des->output_buffer = ssl_des->coding_func(ssl_des->mode, \
+														ssl_des->input_buffer, \
+														ssl_des->input_len, \
+														&ssl_des->output_len,
+														ssl_des->a, ssl_des->k, ssl_des->p, ssl_des->s, ssl_des->v);
 
-	// change output!!! to file if -o
-	if (ssl_des->output_buffer)
-		printf("%s\n", ssl_des->output_buffer);
+			free(ssl_des->k);
+			ssl_des->k = NULL;
+			free(ssl_des->p);
+			ssl_des->p = NULL;
+		}
 
-	free(ssl_des->input_buffer);
-	free(ssl_des->output_buffer);
+		// change output!!! to file if -o
+		if (ssl_des->output_buffer)
+			printf("%s", ssl_des->output_buffer);
+		
+		free(ssl_des->input_buffer);
+		free(ssl_des->output_buffer);
+	}
+
 	free(ssl_des);
 }

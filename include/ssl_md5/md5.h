@@ -6,14 +6,14 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 03:05:43 by cdarrell          #+#    #+#             */
-/*   Updated: 2023/01/29 01:09:33 by cdarrell         ###   ########.fr       */
+/*   Updated: 2024/07/01 14:12:14 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MD5_H
 # define MD5_H
 
-# include "../libft/include/libft.h"
+# include "../../libft/include/libft.h"
 # include <stdint.h>
 
 # define A	0

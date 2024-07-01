@@ -6,14 +6,14 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 20:12:37 by cdarrell          #+#    #+#             */
-/*   Updated: 2023/02/27 18:37:57 by cdarrell         ###   ########.fr       */
+/*   Updated: 2024/07/01 14:12:26 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WHIRLPOOL_H
 # define WHIRLPOOL_H
 
-# include "../libft/include/libft.h"
+# include "../../libft/include/libft.h"
 # include <stdint.h>
 
 static const uint64_t	g_rc[10] = {

@@ -6,14 +6,14 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 20:12:37 by cdarrell          #+#    #+#             */
-/*   Updated: 2023/01/29 03:58:29 by cdarrell         ###   ########.fr       */
+/*   Updated: 2024/07/01 14:12:18 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHA256_H
 # define SHA256_H
 
-# include "../libft/include/libft.h"
+# include "../../libft/include/libft.h"
 # include <stdint.h>
 
 // #define ROTRIGHT(a,b)	(((a) >> (b)) | ((a) << (32-(b))))

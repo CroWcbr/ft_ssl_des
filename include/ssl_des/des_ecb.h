@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   base64.h                                           :+:      :+:    :+:   */
+/*   des_cbc.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 19:00:32 by cdarrell          #+#    #+#             */
-/*   Updated: 2024/07/01 14:12:08 by cdarrell         ###   ########.fr       */
+/*   Created: 2024/07/01 14:18:52 by cdarrell          #+#    #+#             */
+/*   Updated: 2024/07/01 14:19:07 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MD5_H
-# define MD5_H
+#ifndef DES_CBC_H
+# define DES_CBC_H
 
-# include "../../libft/include/libft.h"
-# include <stdint.h>
-
-static const char	g_b64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-
-char	*base64_encode(const char *input, \
-						const size_t inp_len, \
-						size_t *out_len);
-char	*base64_decode(const char *input, \
-						const size_t inp_len, \
-						size_t *out_len);
-
-void	ft_err(char *str);
+# include "des.h"
 
 #endif

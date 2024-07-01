@@ -6,7 +6,7 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 22:16:09 by cdarrell          #+#    #+#             */
-/*   Updated: 2024/06/06 22:26:58 by cdarrell         ###   ########.fr       */
+/*   Updated: 2024/07/01 12:50:28 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*read_pass(char mode)
         if (!pass_tmp)
         {
             ft_putstr("Error in getpass - pass\n");
-            return (NULL);				
+            return (NULL);
         }
         pass = ft_strdup(pass_tmp);
         if (!pass)
@@ -33,7 +33,7 @@ char	*read_pass(char mode)
         {
             ft_putstr("Error in getpass - pass verifying\n");
             free(pass);
-            return (NULL);				
+            return (NULL);
         }
 
         if (ft_strcmp(pass, pass_tmp))

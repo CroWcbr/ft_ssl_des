@@ -6,7 +6,7 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 18:30:46 by cdarrell          #+#    #+#             */
-/*   Updated: 2023/03/30 22:13:43 by cdarrell         ###   ########.fr       */
+/*   Updated: 2024/07/01 13:43:59 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	print_ssl_des(t_ssl_des *ssl_des)
 			ft_putstr("\n");
 		}
 		ft_putstr("mode = \t\t");
-		ft_putstr(&ssl_des->mode);
+		ft_putchar_fd(ssl_des->mode, 1);
 		ft_putstr("\n");
 		if (ssl_des->coding_func)
 		{

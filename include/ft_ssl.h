@@ -6,7 +6,7 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 19:53:49 by cdarrell          #+#    #+#             */
-/*   Updated: 2024/07/01 14:14:59 by cdarrell         ###   ########.fr       */
+/*   Updated: 2024/07/03 10:11:26 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ typedef struct s_ssl_des
 	t_bool			a;
 	char			*k;
 	char			*p;
+	t_bool			p_stdin;
 	char			*s;
 	char			*v;
 }				t_ssl_des;

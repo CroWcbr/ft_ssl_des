@@ -6,7 +6,7 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 21:28:00 by cdarrell          #+#    #+#             */
-/*   Updated: 2024/07/01 14:15:32 by cdarrell         ###   ########.fr       */
+/*   Updated: 2024/07/03 10:12:23 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,19 @@ void	make_ssl_des(t_ssl_des *ssl_des)
 														&ssl_des->output_len,
 														ssl_des->a, ssl_des->k, ssl_des->p, ssl_des->s, ssl_des->v);
 
-			free(ssl_des->k);
-			ssl_des->k = NULL;
-			free(ssl_des->p);
-			ssl_des->p = NULL;
+
+			if (ssl_des->p_stdin)
+				free(ssl_des->p);
 		}
 
 		// change output!!! to file if -o
 		if (ssl_des->output_buffer)
+		{
 			printf("%s", ssl_des->output_buffer);
-		
+			free(ssl_des->output_buffer);	
+		}
+
 		free(ssl_des->input_buffer);
-		free(ssl_des->output_buffer);
 	}
 
 	free(ssl_des);

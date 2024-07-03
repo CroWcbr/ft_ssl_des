@@ -6,7 +6,7 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 20:37:39 by cdarrell          #+#    #+#             */
-/*   Updated: 2024/07/01 14:25:20 by cdarrell         ###   ########.fr       */
+/*   Updated: 2024/07/03 10:12:04 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static t_ssl_des	*init_ssl_des(char *cmd)
 	ssl_des->a = false;
 	ssl_des->k = NULL;
 	ssl_des->p = NULL;
+	ssl_des->p_stdin = false;
 	ssl_des->s = NULL;
 	ssl_des->v = NULL;
 	return (ssl_des);
@@ -68,6 +69,7 @@ t_ssl_des	*parse_ssl_des(char *cmd, char **argv)
 			free(ssl_des);
 			return (NULL);
 		}
+		ssl_des->p_stdin = true;
 	}
 	if (!ssl_des->input_file)
 	{

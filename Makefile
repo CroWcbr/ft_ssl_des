@@ -37,8 +37,8 @@ SRC			=	ft_ssl.c \
 				ssl_md5/whirlpool/whirlpool_utily.c \
 				ssl_des/base64/base64_main.c \
 				ssl_des/base64/base64_decode.c \
-				ssl_des/des/des_cbc.c \
-				ssl_des/des/des_ecb.c 
+				ssl_des/des/des_main.c
+				
 
 OBJ			=	$(SRC:%.c=$(OBJ_DIR)/%.o)
 

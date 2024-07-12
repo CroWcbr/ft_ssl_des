@@ -6,7 +6,7 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 19:53:49 by cdarrell          #+#    #+#             */
-/*   Updated: 2024/07/03 10:11:26 by cdarrell         ###   ########.fr       */
+/*   Updated: 2024/07/03 14:39:54 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,9 @@
 # include <stdio.h>
 # include <stdint.h>
 # include "../libft/include/libft.h"
+# include "ft_bool.h"
 
 # define IS_DEBUG 1
-
-typedef enum s_bool
-{
-	false,
-	true
-}			t_bool;
 
 typedef struct s_ssl_md5
 {
@@ -52,21 +47,14 @@ typedef struct s_ssl_des
 									const char *str, \
 									const size_t inp_len, \
 									size_t *out_len);
-	char			*(*coding_func)(const char mode, \
-									const char *str, \
-									const size_t inp_len, \
-									size_t *out_len,
-									t_bool a,
-									char *k,
-									char *p,
-									char *s,
-									char *v);
+	uint8_t			*(*coding_func)(const char *cmd, const char mode, const char *input, const size_t inp_len, size_t *out_len,
+							t_bool a, char *k, char *p, char *s, char *v);
 	char			mode;
 	char			*input_file;
 	char			*input_buffer;
 	size_t			input_len;
 	char			*output_file;
-	char			*output_buffer;
+	uint8_t			*output_buffer;
 	size_t			output_len;
 // crypto flag
 	t_bool			a;
@@ -104,10 +92,7 @@ void		print_hash_md5(t_ssl_md5 *ssl, t_hash_md5 *hash, uint8_t *result);
 
 void		make_ssl_des(t_ssl_des *ssl_des);
 char		*base64_main(const char mode, const char *input, const size_t inp_len, size_t *out_len);
-// char		*des_main(const char *str, const uint64_t len);
-char		*des_cbc_main(const char mode, const char *input, const size_t inp_len, size_t *out_len,
-							t_bool a, char *k, char *p, char *s, char *v);
-char		*des_ecb_main(const char mode, const char *input, const size_t inp_len, size_t *out_len,
+uint8_t		*des_main(const char *cmd, const char mode, const char *input, const size_t inp_len, size_t *out_len,
 							t_bool a, char *k, char *p, char *s, char *v);
 
 char		*read_fd_to_str(int fd, uint64_t *len);

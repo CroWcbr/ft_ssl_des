@@ -6,7 +6,7 @@
 /*   By: cdarrell <cdarrell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 20:37:39 by cdarrell          #+#    #+#             */
-/*   Updated: 2024/07/03 10:12:04 by cdarrell         ###   ########.fr       */
+/*   Updated: 2024/07/03 12:58:05 by cdarrell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,10 @@
 static void	init_ssl_des_function(t_ssl_des *ssl_des)
 {
 	ssl_des->base64 = &base64_main;
-	ssl_des->coding_func = NULL;
 	if (ft_strcmp(ssl_des->cmd, "base64"))
-	{
-		if (!ft_strcmp(ssl_des->cmd, "des") || !ft_strcmp(ssl_des->cmd, "des-ecb"))
-			ssl_des->coding_func = &des_ecb_main;
-		else if (!ft_strcmp(ssl_des->cmd, "des-cbc"))
-			ssl_des->coding_func = &des_cbc_main;
-	}
+		ssl_des->coding_func = &des_main;
+	else
+		ssl_des->coding_func = NULL;
 }
 
 static t_ssl_des	*init_ssl_des(char *cmd)
